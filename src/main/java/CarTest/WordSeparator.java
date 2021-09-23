@@ -19,7 +19,7 @@ public class WordSeparator {
             return false;}
     }
 
-    public static void separator(File someFile) throws FileNotFoundException {
+    public static String separator(File someFile) throws FileNotFoundException {
         File theFile = someFile;
         File inputFile = new File(String.valueOf(theFile));
         Scanner input = new Scanner(inputFile);
@@ -31,13 +31,13 @@ public class WordSeparator {
             String[] wordArray = word.split("\\s");
             for (String s : wordArray) {
                 //System.out.println(s + " ");
-                //sb.append(s + " ");
                 if(s.length() == 7 && isStringUpperCase(s)){
                     System.out.println(s + " ");
+                    sb.append(s + " ");
                 }
             }
         }
-        //return sb.toString();
+        return sb.toString();
     }
 
 
