@@ -22,6 +22,8 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
 public class EnterRegDetailsTest {
   private WebDriver driver;
   private Map<String, Object> vars;
@@ -37,12 +39,15 @@ public class EnterRegDetailsTest {
     driver.quit();
   }
   @Test
-  public void enterRegDetails() {
+  public String[] enterRegDetails(String input) {
+    String[] output = new String[5];
+    output[0] = input;
     driver.get("https://cartaxcheck.co.uk/");
     driver.manage().window().setSize(new Dimension(1160, 702));
     driver.findElement(By.id("vrm-input")).click();
     driver.findElement(By.id("vrm-input")).sendKeys("DN09HRM");
     driver.findElement(By.cssSelector(".jsx-1164392954")).click();
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     {
       WebElement element = driver.findElement(By.cssSelector(".lds-ellipsis"));
       Actions builder = new Actions(driver);

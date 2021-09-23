@@ -16,6 +16,7 @@ public class ReadFile {
             String line = input.nextLine();
             String[] lineArray = line.split("\n");
             for (String s : lineArray) {
+                //System.out.println(s + " ");
                 sb.append(s + " ");
             }
         }
