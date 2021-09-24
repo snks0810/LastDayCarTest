@@ -1,6 +1,7 @@
 package CarTest;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WordSeparator {
@@ -19,12 +20,12 @@ public class WordSeparator {
             return false;}
     }
 
-    public static String separator(File someFile) throws FileNotFoundException {
+    public static ArrayList<String> separator(File someFile) throws FileNotFoundException {
         File theFile = someFile;
         File inputFile = new File(String.valueOf(theFile));
         Scanner input = new Scanner(inputFile);
 
-        StringBuilder sb = new StringBuilder("");
+        ArrayList<String> output = new ArrayList<>();
 
         while (input.hasNext()) {
             String word = input.nextLine();
@@ -33,11 +34,11 @@ public class WordSeparator {
                 //System.out.println(s + " ");
                 if(s.length() == 7 && isStringUpperCase(s)){
                     System.out.println(s + " ");
-                    sb.append(s + " ");
+                    output.add(s);
                 }
             }
         }
-        return sb.toString();
+        return output;
     }
 
 
