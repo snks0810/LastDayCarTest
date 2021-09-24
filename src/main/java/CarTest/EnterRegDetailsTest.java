@@ -14,10 +14,12 @@ import java.util.concurrent.TimeUnit;
 
 public class EnterRegDetailsTest {
   private WebDriver driver;
+  private String webAddress;
   private Map<String, Object> vars;
   static JavascriptExecutor js;
 
   public void setUp() {
+    webAddress = "https://cartaxcheck.co.uk/";
     WebDriverManager.chromedriver().setup();
     driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
@@ -32,7 +34,7 @@ public class EnterRegDetailsTest {
 
     String[] output = new String[5];
     output[0] = input;
-    driver.get("https://cartaxcheck.co.uk/");
+    driver.get(webAddress);
     driver.manage().window().setSize(new Dimension(1160, 702));
     driver.findElement(By.id("vrm-input")).click();
     driver.findElement(By.id("vrm-input")).sendKeys(input);

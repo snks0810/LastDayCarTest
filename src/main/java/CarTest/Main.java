@@ -10,6 +10,7 @@ public class Main {
         ReadFile.fileReader();
         //EnterRegDetailsTest.enterRegDetails(WordSeparator.separator(new File("car_input.txt")));
         EnterRegDetailsTest mainInstance = new EnterRegDetailsTest();
+        mainInstance.setUp();
         mainInstance.enterRegDetails("DN09HRM");
     }
 }
